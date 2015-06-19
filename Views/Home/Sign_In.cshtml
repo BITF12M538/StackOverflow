@@ -1,0 +1,67 @@
+﻿@model Term_Project.Models.User
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign_In</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar navbar-header">
+
+        </div>
+    </nav>
+        <div class="row">
+
+            <div class="col-xs-3"></div>
+
+            <div class="col-xs-8">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <div class="row">
+                        <div class="col-xs-3"></div>
+
+                        <div class="col-xs-7">
+
+                            @Html.LabelFor(m => m.Name)
+                            @Html.TextBoxFor(m => m.Name, new { type = "text" })
+
+
+                            <br />
+                            <br />
+                              @Html.LabelFor(m => m.Password)
+
+                             <div class="status answered">
+
+                                @Html.TextBoxFor(m => m.Password, new { type = "password", required = "Required" })
+
+                              </div>  
+
+                            </div>
+                            
+                        <br /><br />
+                        <br /><br />
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="col-xs-2"></div>
+
+                    </div>
+                }
+            </div>
+                    
+            <div class="col-xs-1"></div>
+            <br /><br />
+            <br /><br />
+        </div><br /><br />
+        <br /><br />
+
+</body>
+</html>

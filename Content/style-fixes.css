@@ -1,0 +1,25 @@
+﻿input[type="text"], input[type="url"], input[type="email"], input[type="tel"], textarea {
+    margin: 14px 30px 10px 15px;
+    padding: 1px 7px;
+}
+.navbar {
+    height: 10px !important;
+    font-size: 13px;
+    min-height: 40px !important;
+}
+.navbar-brand {
+    float: left;
+    font-size: 18px !important;
+    height: 50px;
+    line-height: 20px;
+    margin-right: 15px !important;
+    padding: 10px 6px 6px 20px !important;
+}
+.navbar-right {
+    float: left;
+    font-size: 13px !important;
+    height: 40px;
+    line-height: 20px;
+    margin-right: 15px !important;
+    
+}

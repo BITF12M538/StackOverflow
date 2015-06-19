@@ -1,0 +1,152 @@
+﻿@model Term_Project.Models.Question
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QuestionDetail</title>
+</head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+        <div id="content" class="snippet-hidden">
+
+
+            <div itemscope itemtype="http://schema.org/Question">
+                
+                <div id="question-header">
+                     <h1 class="question-hyperlink">@Model.Title</h1> 
+                </div>
+                <div id="mainbar">
+
+
+
+                       <table>
+                            <tr>
+                                <td class="votecell">
+
+
+                                    <div class="vote">
+                                        
+                                        <span itemprop="upvoteCount" class="vote-count-post ">@Model.Votes</span>
+                                        
+
+
+                                    </div>
+
+                                </td>
+
+                                <td class="postcell">
+                                    <div>
+                                        <div class="post-text" itemprop="text">
+
+                                            <p>@Model.Statement</p>
+
+       
+         @foreach(var Ans in ViewBag.Answers)
+        { 
+            
+            String statemnt = Ans.Statement;
+            String[] data = statemnt.Split('.');
+            
+            <pre><code>
+                @foreach(var a in data)
+                {
+                    <p>@a</p>
+                }
+                
+            </code></pre>
+        }
+    
+                                        </div>
+                                        <div class="post-taglist">
+                                            @foreach(var t in ViewBag.Tags)
+                                            { 
+                                            <a href="/Home/Tags" class="post-tag" rel="tag">@t.Name</a>
+                                            }</div>
+                                        <table class="fw">
+                                            <tr>
+                                                
+                                                <td class="post-signature owner">
+                                                    <div class="user-info ">
+                                                        <div class="user-action-time">
+                                                            asked <span title="2015-06-09 01:47:22Z" class="relativetime">@Model.DateTime</span>
+                                                        </div>
+                                                        <div class="user-gravatar32">
+                                                            <a href="/users/4887857/java-user"><div class="gravatar-wrapper-32"><img src="@Model.User.Image" alt="" width="32" height="32"></div></a>
+                                                        </div>
+                                                        <div class="user-details">
+                                                            <a href="/users/4887857/java-user">@Model.User.Name</a><br>
+                                                            Votes : <span class="reputation-score" title="reputation score " dir="ltr">@Model.Votes</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="votecell"></td>
+                                <td>
+                                    <div id="comments-30721775" class="comments  dno">
+                                        <table>
+                                            <tbody data-remaining-comments-count="0"
+                                                   data-canpost="false"
+                                                   data-cansee="true"
+                                                   data-comments-unavailable="false"
+                                                   data-addlink-disabled="true">
+
+                                                <tr><td></td><td></td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+         
+                <div id="sidebar" class="show-votes">
+
+
+
+                    					    <div class="module question-stats">
+                        <table id="qinfo">
+                            <tr>
+                                <td>
+                                    <p class="label-key">asked</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key" title="2015-06-09 01:47:22Z"><b>@Model.DateTime</b></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">viewed</p>
+                                </td>
+
+                                <td style="padding-left: 10px">
+                                    <p class="label-key">
+                                        <b>@Model.Views times</b>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    </div>
+</div>
+            
+    </div>
+</body>
+</html>
+

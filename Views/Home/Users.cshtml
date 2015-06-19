@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users</title>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-default">
+            </nav>
+            
+               
+        <table style="width:100%">
+
+
+            @foreach (Term_Project.Models.User u in Model)
+            {
+                <tr>
+                    <td> <img src=@u.Image height="40" width="40"></td>
+                    <td> <strong>@u.Name</strong></td>
+                    <td><h4> @u.Address </h4></td>
+                    <td>  <h4>@u.Email</h4> </td>
+                </tr>
+
+
+
+
+
+                
+            }
+        </table>
+
+            
+
+</div>
+    
+</body>
+</html>

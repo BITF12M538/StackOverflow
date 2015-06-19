@@ -1,0 +1,68 @@
+﻿@model Term_Project.Models.QuestionTag
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&a" />
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How to Ask" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Q&amp;A for professional and enthusiast programmers" />
+    <meta property="og:url" content="http://stackoverflow.com/questions/ask/advice" />
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="//cdn.sstatic.net/Js/stub.en.js?v=a1df2692490e"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.sstatic.net/stackoverflow/all.css?v=4a58e527865d">
+
+    <title>AskQuestion</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-5">
+        <div class="subheader">
+            <h1>How to Ask</h1>
+        </div>
+
+        <div id="mainbar">
+            <div class="content-page">
+                
+                <h2>Be on-topic</h2>
+                <p>Our community is defined by a specific set of topics in the help center; please stick to those topics and avoid asking for opinions or open-ended discussion. If your question is about the site itself, ask on our meta-discussion site. If you’re looking for a different topic, it might be covered on another Stack Exchange site.</p>
+                <h2>Be specific</h2>
+                <p>If you ask a vague question, you’ll get a vague answer. But if you give us details and context, we can provide a useful, relevant answer.</p>
+                <h2>Make it relevant to others</h2>
+                <p>We like to help as many people at a time as we can. Make it clear how your question is relevant to more people than just you, and more of us will be interested in your question and willing to look into it.</p>
+                <h2>Keep an open mind</h2>
+                <p>The answer to your question may not always be the one you wanted, but that doesn’t mean it is wrong. A conclusive answer isn’t always possible. When in doubt, ask people to cite their sources, or to explain how/where they learned something. Even if we don’t agree with you, or tell you exactly what you wanted to hear, remember: we’re just trying to help.</p>
+                <h2>Post Question</h2>
+                <form action="/User/AddQuestion" method="post">
+                <label>Title</label><textarea cols="70" rows="10" name="Title"></textarea>
+                <br/><label>Statement</label><textarea cols="90" rows ="20" name="Statement">
+
+                </textarea>
+                    <label>Tag</label>
+                 <input type="text" name="TagName" /> 
+                    <input type="hidden" name="UserId" value="@Session["Id"]" />
+                   
+                    <button type="submit" class="btn btn-primary">Add</button>
+              </form>      
+            </div>
+        </div>
+
+            </div>
+        </div>
+   
+</body>
+</html>

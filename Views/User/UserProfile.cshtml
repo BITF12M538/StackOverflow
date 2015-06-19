@@ -1,0 +1,49 @@
+﻿@model Term_Project.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserProfile</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar navbar-header">
+
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
+        @using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { enctype = "multipart/form-data"))
+                {
+            <label>Name</label>
+        @Html.EditorFor(m => m.Name)
+         <br /> <br />
+        <label>Password</label>
+         @Html.EditorFor(m => m.Password)<br/><br />
+        <label>Email</label>
+        @Html.EditorFor(m => m.Email) <br /><br />
+        <label>Address</label>
+        @Html.EditorFor(m => m.Address)<br /> <br />
+            
+            <input type="hidden" value="@Session["Id"]" name="Id"/> <br /> <br />
+            
+            @Html.TextBoxFor(m => m.Image, new { type = "file", name="image" }) <br /> <br />
+
+            <button type="submit" class="btn btn-primary">Edit</button>
+        }
+            </div>
+
+        <div class="col-xs-4">
+            <img src="@Model.Image" height="200" width="200" /> <br />
+        
+            
+            </div>
+        </div>
+</body>
+</html>

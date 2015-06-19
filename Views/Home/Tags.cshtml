@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tags</title>
+</head>
+<body>
+    <div id="content" class="snippet-hidden">
+
+
+        <div id="mainbar-full">
+            <div class="subheader">
+                <h1 id="h-tags">Tags</h1>
+                
+            </div>
+            <div class="page-description">
+                <p>
+                    A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
+                </p>
+                <table>
+                    <tr>
+                        <td>Type to find tags:</td>
+                        <td style="padding-left:5px"><input id="tagfilter" name="tagfilter" type="text"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                
+                <div class="col-xs-3">
+                    <table style="width:100%">
+
+                        @foreach (Term_Project.Models.Tag t in Model)
+                        {
+                            <tr>
+                                <td class="tag-cell">
+                                    <a href="/questions/tagged/java" class="post-tag" title="show questions tagged &#39;java&#39;" rel="tag">@t.Name</a>
+                                    <div class='excerpt'>@t.Description</div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                
+                </div>
+                
+    </div>
+            </div>
+        </div>
+</body>
+</html>

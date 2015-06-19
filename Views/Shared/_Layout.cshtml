@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="~/Content/bootstrap/js/npm.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.js"></script>
+    <link href="~/Content/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/templatemo_style.css" rel="stylesheet" />
+    <link href="~/Content/templatemo_style_2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/stack-overflow.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/style-fixes.css">
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/Home/Index">ProgrammingPro</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                
+                @if(Session["uname"] == null)
+                { 
+                
+                <li>@Html.ActionLink("Sign up", "Sign_Up", "Home")</li>
+                <li>@Html.ActionLink("Log in", "Sign_In", "Home")</li>
+                }
+                else
+                { 
+                     <li><img src="@Session["uimage"]" height="35" width="35"></li>
+                    <li class="nav navbar-nav"><a href="/User/UserProfile">@Session["uname"]</a></li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                }
+                <li>@Html.ActionLink("Contact Us", "ContactUs", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>
+
+                    <form id="search" action="/search" method="get" autocomplete="off">
+
+                        <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="100" size="20" width="20" />
+                    </form>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="header">
+
+            <br class="cbt">
+
+            <img src="~/Content/Themes/Base/Images/Icon.png" height="40" width="40">
+            <h2>ProgrammingPro</h2>
+
+        </div>
+
+        <div id="hmenus">
+            <div class="nav mainnavs">
+                <br />
+
+                <br />
+                <br />
+                <br />
+                <ul>
+                    <li>@Html.ActionLink("Question", "Questions", "Home", new { id = "nav-questions" })</li>
+                    <li>@Html.ActionLink("Tags", "Tags", "Home", new { id = "nav-tags" })</li>
+                    <li>@Html.ActionLink("Users", "Users", "Home", new { id = "nav-users" })</li>
+                    <li>@Html.ActionLink("Unanswered", "Unanswered", "Home", new { id = "nav-unanswered" })</li>
+                </ul>
+            </div>
+            <div class="nav askquestion">
+                <ul>
+                    <li>
+                        <a id="nav-askquestion" href="/Home/AskQuestions">Ask Question</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <!-- <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-footer">
+            <a class="navbar-brand" href="#" />
+        </div>
+    </nav> -->
+
+
+</body>
+</html>

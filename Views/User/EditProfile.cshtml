@@ -1,0 +1,38 @@
+﻿@model Term_Project.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProfile</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar navbar-header">
+
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
+            <label>Name</label>
+            <h4>@Model.Name</h4> <br /> <br />
+            <label>Password</label>
+            <h4>@Model.Password</h4> <br /> <br />
+            <label>Email</label>
+            <h4>
+                @Model.Email
+        </h4> <br /> <br />
+            <label>Address</label>
+            <h4>@Model.Address</h4> <br /> <br />
+        </div>
+        <div class="col-xs-4">
+            <img src="@Model.Image" height="200" width="200" /> <br />
+            </div>
+        </div>
+</body>
+</html>

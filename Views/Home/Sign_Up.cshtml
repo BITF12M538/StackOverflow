@@ -1,0 +1,119 @@
+﻿@model Term_Project.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up</title>
+    
+
+            </head>
+            <body>
+                <nav class="navbar navbar-default">
+                    <div class="navbar navbar-header">
+
+                    </div>
+                </nav>
+                <div class="row">
+                    <div class="col-md-3">
+
+                    </div>
+
+                    <div class="col-xs-3">
+
+            @using (Html.BeginForm("AddAccount", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { type = "text" }) <br /><br />
+
+
+                @Html.LabelFor(m => m.Email)
+                
+                
+              <div>  
+             @Html.TextBoxFor(m => m.Email, new { type="email", id = "email", name= "email"})
+
+                    <input type="button" id="b1" value="Check" />
+    <div id="result"></div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+               
+                var userName = $('#UserName').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data)
+                {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+                        
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                @Html.LabelFor(m => m.Password)                
+                <div class="status answered">
+            @Html.TextBoxFor(m => m.Password, new { type = "password" })<br /><br />
+                </div>
+
+                @Html.LabelFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address, new { type = "text" })
+
+                <br /><br />
+
+                @Html.LabelFor(m => m.Image)
+                @Html.TextBoxFor(m => m.Image, new { type = "file" })
+
+                <input type="submit" value="upload" />
+                <br /><br />
+                <input type="hidden" value="User" name="Type"/>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            }
+        </div>
+
+    </div>
+    <br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br />
+    <br />
+    <br />
+</body>
+</html>

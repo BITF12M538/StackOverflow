@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Unanswered</title>
+</head>
+<body>
+    
+        <div class="row">
+
+            <div class="col-xs-1"></div>
+            <div class="col-xs-8">
+                <div id="mainbar">
+
+                    <div class="subheader">
+                        <h1 id="h-top-questions">
+                            Top Questions
+                        </h1>
+
+                    </div>
+                    <div id="qlist-wrapper">
+                        <div id="question-mini-list">
+
+
+                            @foreach (Term_Project.Models.Question q in Model)
+                            {
+
+                                <div class="question-summary narrow"
+                                     id="question-summary-30621577">
+                                    <div class="cp">
+                                        <div class="votes">
+                                            <div class="mini-counts"><span title="3 votes">@q.Votes</span></div>
+                                            <div>votes</div>
+                                        </div>
+                                        <div class="status answered">
+                                            <div class="mini-counts"><span title="2 answers">@q.Answers</span></div>
+                                            <div>answers</div>
+                                        </div>
+                                        <div class="views">
+                                            <div class="mini-counts"><span title="23 views">@q.Views</span></div>
+                                            <div>views</div>
+                                        </div>
+                                    </div>
+                                    <div class="summary">
+
+                                        <h3>
+                                            <a href="" class="question-hyperlink" title="">@q.Title</a>
+                                        </h3>
+                                        <div class="tags t-c&#231;&#231; t-windows t-qt t-dll t-qt5">
+                                            @foreach (Term_Project.Models.Tag t in q.Tag1)
+                                            {
+                                                <a href="/Home/Tags" class="post-tag" rel="tag">@t.Name</a>
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+</body>
+</html>
